@@ -1,18 +1,8 @@
 $(document).ready(function() {
 
-    
-
-        
-
-         // This is our API key
-         var APIKey = "";
          // Here we are building the URL we need to query the database
          var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=Greek" 
-          
-                    
-       // Here we are building the URL we need to query the database
-        
-        // Here we run our AJAX call to the OpenWeatherMap API
+         // Here we run our AJAX call to the OpenWeatherMap API
         $.ajax({
           url: queryURL,
           method: "GET"
@@ -21,11 +11,6 @@ $(document).ready(function() {
          .then(function(response) {
             // Log the resulting object
             console.log(response.meals);
-            
-            
+
           });
-
-
-
-    
  });
