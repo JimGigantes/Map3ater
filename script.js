@@ -2,6 +2,10 @@ $(document).ready(function() {
    var cuisine = ["American","British","Canadian", "Chinese","Dutch","Egyptian","French","Greek","Indian","Irish","Italian","Jamaican", "Japanese", "Kenyan", "Malaysian", "Mexican", "Moroccan", "Polish", "Russian", "Spanish", "Thai", "Tunisian", "Turkish", "Vietnamese"];
    var country = ["US", "GB","CA","CN","NL","EG","FR","GR","IN", "IE","IT","JM","JP","KE","MY","MX","MA","PL","RU","ES","TH","TN","TR","VN"]
 
+//   The Function to Start the Modal 
+$(document).ready(function(){
+   $('.modal').modal();
+ });
 
    function runTheMeal(cusineCode,countryCode){
                // Here we are building the URL we need to query the database
@@ -140,14 +144,5 @@ $(document).ready(function() {
    countryCode = country[23]
    runTheWeather(cusineCode,countryCode)
   });
-
-  
-
-
-
-
-
-
-
 
  });
