@@ -1,7 +1,7 @@
 $(document).ready(function() {
    var cuisine = ["American","British","Canadian", "Chinese","Dutch","Egyptian","French","Greek","Indian","Irish","Italian","Jamaican", "Japanese", "Kenyan", "Malaysian", "Mexican", "Moroccan", "Polish", "Russian", "Spanish", "Thai", "Tunisian", "Turkish", "Vietnamese"];
    var country = ["US", "GB","CA","CN","NL","EG","FR","GR","IN", "IE","IT","JM","JP","KE","MY","MX","MA","PL","RU","ES","TH","TN","TR","VN"]
-   var countryInitials= ["USA","GB","CAN","CHI","BEL","EGY","FRE","GRE","IND","IRI","ITA","JAM","JAP","KEN","MAL","MEX","MOR","POL",]
+   var countryInitials= ["USA","GB","CAN","CHI","BEL","EGY","FRE","GRE","IND","IRI","ITA","JAM","JAP","KEN","MAL","MEX","MOR","POL","RUS","SPA","THA","TUN","TUR","VIE"]
 
   // function runTheMeal(cusineCode,countryCode){
                // Here we are building the URL we need to query the database
@@ -16,8 +16,13 @@ $(document).ready(function() {
                .then(function(response) {
                   // Log the resulting object
                   console.log(response);
-                  // Here we are creatign the objusect on the Modal for the User to select from.
+                  var numberOfMeals = response.meals.length
 
+                  // Here we are creatign the objects on the Modal for the User to select from.
+                  for (var i; i < numberOfMeals; i++){
+                  
+
+                  }
 
 
 
