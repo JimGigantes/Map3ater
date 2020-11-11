@@ -4,4 +4,20 @@
     text-align: initial; /* restore text-align to default */
   }
 
-  
+#icon{
+  margin: auto;
+  height: 100px;
+  width: 100px;
+}
+.modal-content{
+  width: auto;
+  margin: auto;
+}
+
+.carousel-item{
+  width: auto;
+  margin: auto;
+  height: 400px;
+  width: 400px;
+
+}
