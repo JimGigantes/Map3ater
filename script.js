@@ -1,6 +1,24 @@
 $(document).ready(function() {
    var cuisine = ["American","British","Canadian", "Chinese","Dutch","Egyptian","French","Greek","Indian","Irish","Italian","Jamaican", "Japanese", "Kenyan", "Malaysian", "Mexican", "Moroccan", "Polish", "Russian", "Spanish", "Thai", "Tunisian", "Turkish", "Vietnamese"];
-   var country = ["US", "GB","CA","CN","NL","EG","FR","GR","IN", "IE","IT","JM","JP","KE","MY","MX","MA","PL","RU","ES","TH","TN","TR","VN"]
+   var country = ["us", "uk","ca","cn","be","eg","fr","gr","in","ie","it","jm","jp","ke","my","mx","ma","pl","ru","es","th","tn","tr","vn"];
+   var countryInitials = ["USA","GB","CAN","CHI","BEL","EGY","FRE","GRE","IND","IRI","ITA","JAM","JAP","KEN","MAL","MEX","MOR","POL","RUS","SPA","THA","TUN","TUR","VIE"];
+   var list = [
+      {
+         cruise: "American",
+         country:"us",
+         countryInitials: "USA"
+      },
+      {
+         cruise: "British",
+         country:"uk",
+         countryInitials: "GB"
+      }
+   ]
+   var modalContent = $(".modal-content")
+  
+        
+   
+   $("modal1")
 
 //   The Function to Start the Modal 
 $(document).ready(function(){
