@@ -57,21 +57,24 @@ $(document).ready(function() {
                      
                     var mealID = response.meals[i].idMeal
                      var mealName = response.meals[i].strMeal
-                    modalContent.append("<a href><img src="+response.meals[i].strMealThumb + " id='icon' class='foodIcon' meal-Name='" + mealName + "' meal-ID='" + mealID + "' > </i>")
-                    modalContent.append("<a href>" + response.meals[i].strMeal + "</a>")
+                    //modalContent.append("<a href><img src="+response.meals[i].strMealThumb + " id='icon' class='foodIcon' meal-Name='" + mealName + "' meal-ID='" + mealID + "' > </i>")
+                    //modalContent.append("<a href>" + response.meals[i].strMeal + "</a>")
                      //var listItemsForCarousel = $('a')
                     
                      //listItemsForCarousel.addClass("carousel-item")
                      //listItemsForCarousel.append("<img src="+response.meals[i].strMealThumb + " id='icon' class='foodIcon' meal-Name='" + mealName + "' meal-ID='" + mealID + "' >")
-                     $(".carousel-slider").append("<a class='carousel-item' href='#"+i+"!'>"+"<img src='" + response.meals[i].strMealThumb + "'  class='foodIcon' meal-Name='" + mealName + "' meal-ID='" + mealID + "' >" +"</a>")
+                     $(".carousel-slider").append("<a class='carousel-item' href='#"+i+"!'  meal-Name='" + mealName + "' meal-ID='" + mealID + "'>" + "<img src='" + response.meals[i].strMealThumb + "'  class='foodIcon'  >" +"</a>")
                      $('.carousel').carousel()
                   }
-                  $('.foodIcon').click(function () {
+                  $('.carousel-item').click(function () {
                      var countryMealID = $(this).attr('meal-ID');
                      var countryMealName = $(this).attr('meal-Name');
-                        
+
+                     modalContent.empty()
+                     console.log(countryMealID);
                         //we will need to append the passport here.
-                     
+                       
+
                      runTheMeal(countryMealID)
                   });
 
