@@ -201,31 +201,45 @@ $(document).ready(function() {
    ];
 
 
-      var rowCount = Math.ceil(list.length/4)
-      var cardCount = 0;
-      var cardContent = $("#cardContainer")
-   var cuisine = ["American","British","Canadian", "Chinese","Dutch","Egyptian","French","Greek","Indian","Irish","Italian","Jamaican", "Japanese", "Kenyan", "Malaysian", "Mexican", "Moroccan", "Polish", "Russian", "Spanish", "Thai", "Tunisian", "Turkish", "Vietnamese"];
-   var country = ["us", "uk","ca","cn","be","eg","fr","gr","in","ie","it","jm","jp","ke","my","mx","ma","pl","ru","es","th","tn","tr","vn"];
-   var countryInitials = ["USA","GB","CAN","CHI","BEL","EGY","FRE","GRE","IND","IRI","ITA","JAM","JAP","KEN","MAL","MEX","MOR","POL","RUS","SPA","THA","TUN","TUR","VIE"];
-   var list = [
-      {
-         cruise: "American",
-         country:"us",
-         countryInitials: "USA"
-      },
-      {
-         cruise: "British",
-         country:"uk",
-         countryInitials: "GB"
-      }
-   ]
-   var modalContent = $(".modal-content")
-  
-        
-   
-  
+   var rowCount = Math.ceil(list.length/4)
+   var cardCount = 0;
+   var cardContent = $("#cardContainer")
 
-   $('.modal').modal();
+
+for (var i = 0; i < rowCount; i++) {
+   var htmlRow = $("<div class='row'></div>");
+   for (var j = 0; j < 4; j++) {
+	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cruise+'</span> </div> <div class="card-content"> <span class="card-title">Filler Country</span> <p>This is where we can add some fun facts about the countries into this section</p> </div> </div>');
+	  cardCount++
+   }
+
+   cardContent.append(htmlRow)
+}
+
+ var modalContent = $('.modal-content');
+ $('modalInfo');
+
+ //   The Function to Start the Modal
+ $(document).ready(function() {
+	 $('.modal').modal();
+ });
+
+ function runTheMeal(cusineCode, countryCode) {
+	 // Here we are building the URL we need to query the database
+	 var queryURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=' + cusineCode;
+	 // Here we run our AJAX call to the OpenWeatherMap API
+	 $.ajax({
+		 url: queryURL,
+		 method: 'GET'
+	 })
+		 // We store all of the retrieved data inside of an object called "response"
+		 .then(function(response) {
+			 // Log the resulting object
+			 console.log(response.meals);
+		 });
+ }
+        
+//    $('.modal').modal();
 
    $('.material-icons').click(function () {
       var countryID = $(this).attr('country-ID');
@@ -283,8 +297,6 @@ $(document).ready(function() {
                      runTheMeal(countryMealID)
                   });
 
-
-
                   
 
                 });
@@ -309,44 +321,6 @@ $(document).ready(function() {
                 
 
                      })
-
-
-
-
-
-
-   for (var i = 0; i < rowCount; i++) {
-      var htmlRow = $("<div class='row'></div>");
-      for (var j = 0; j < 4; j++) {
-         htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cruise+'</span> </div> <div class="card-content"> <span class="card-title">Filler Country</span> <p>This is where we can add some fun facts about the countries into this section</p> </div> </div>');
-         cardCount++
-      }
- 
-      cardContent.append(htmlRow)
-   }
-
-	var modalContent = $('.modal-content');
-	$('modalInfo');
-
-	//   The Function to Start the Modal
-	$(document).ready(function() {
-		$('.modal').modal();
-	});
-
-	function runTheMeal(cusineCode, countryCode) {
-		// Here we are building the URL we need to query the database
-		var queryURL = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=' + cusineCode;
-		// Here we run our AJAX call to the OpenWeatherMap API
-		$.ajax({
-			url: queryURL,
-			method: 'GET'
-		})
-			// We store all of the retrieved data inside of an object called "response"
-			.then(function(response) {
-				// Log the resulting object
-				console.log(response.meals);
-			});
-	}
 
 	//change the country code
 	$('#USA').on('click', function() {
@@ -470,21 +444,5 @@ $(document).ready(function() {
 		runTheWeather(cusineCode, countryCode);
 	});
 };
-   //change the country code
- //$("#USA").on("click", function() {
- //  cuisineCode = cusine[0]
- //  countryCode = country[0]
- //  runTheWeather(cusineCode,countryCode)
- // });
- // $(".pulse").on("click",".material-icons", function(event) {
-//     event.preventDefault()
-  //  console.log(this)
-   
-   
-   //var countryAttVal = $(this).
 
-
-    //cuisineCode = cusine[0]
-    //countryCode = country[0]
-  // runTheWeather(latestCity)
 });
