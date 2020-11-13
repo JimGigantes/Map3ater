@@ -8,12 +8,12 @@ $(document).ready(function() {
 		},
 		{
 			cuisine: 'British',
-			country: 'uk',
+			country: 'gb',
 			countryInitials: 'GB'
 		},
 		{
 			cuisine: 'Canadian',
-			country: 'cn',
+			country: 'ca',
 			countryInitials: 'CAN'
 		},
 		{
@@ -158,20 +158,19 @@ for (var i = 0; i < rowCount; i++) {
    $('.material-icons').click(function (e) {
       
       var countryID = $(this).attr('country-id');
-      console.log(e)
-         for (var i = 0; countryID == list[i].countryInitials ; i++ ){
-            console.log(e)
+      
+      
+        for (var i = 0;i < list.length;i++ ){
             console.log(i)
-            if (countryID == list[i].countryInitials){
-               var selectedCountry = list[i].country
-               //console.log(selectedCountry)
-               var selectedCuisine = list[i].cuisine
-               //console.log(selectedCuisine)
-            } 
-              
+             if (countryID == list[i].countryInitials){
+                var selectedCountry = list[i].country
+            
+                var selectedCuisine = list[i].cuisine
+            
+                runTheCusine(selectedCuisine,selectedCountry); 
+             } 
           }
-          console.log(countryID)
-          runTheCusine(selectedCuisine,selectedCountry);    
+            
   });
   //if you hit the close button or if you click outside of the modal it clears the contents of the modal
 
@@ -192,7 +191,7 @@ for (var i = 0; i < rowCount; i++) {
                      console.log(response);
                     var numberOfMeals = response.meals.length
                   
-                    modalContent.append("<img src='https://flagcdn.com/32x24/" + countryCode  +".png' width='50rem'  height='50rem' id='icon'>")
+                    modalContent.append("<img src='https://flagcdn.com/192x144/" + countryCode  +".png' width='50rem'  height='50rem' id='icon'>")
                     modalContent.append("<div class='carousel'></div>")
                   // Here we are creatign the objects on the Modal for the User to select from.
                   for (var i = 0 ; i < numberOfMeals; i++){
