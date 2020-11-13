@@ -133,7 +133,7 @@ for (var i = 0; i < rowCount; i++) {
    var htmlRow = $("<div class='row'></div>");
    for (var j = 0; j < 4; j++) {
       
-	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cuisine+'</span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-ID='+ list[k].countryInitials+' >favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
+	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cuisine+'</span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-id='+ list[k].countryInitials+' >favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
      k++
      cardCount++
    }
@@ -155,28 +155,31 @@ for (var i = 0; i < rowCount; i++) {
 
  
 
-   $('.material-icons').click(function () {
-      var countryID = $(this).attr('country-ID');
-         console.log(countryID)
-      for (var i = 0; countryID == list[i].countryInitials ; i++ ){
-         if (countryID == list[i].countryInitials){
-         var selectedCountry = list[i].country
-         console.log(selectedCountry)
-         var selectedCuisine = list[i].cuisine
-         console.log(selectedCuisine)
-         }
-      }
-      runTheCusine(selectedCuisine,selectedCountry)
+   $('.material-icons').click(function (e) {
+      
+      var countryID = $(this).attr('country-id');
+      console.log(e)
+         for (var i = 0; countryID == list[i].countryInitials ; i++ ){
+            console.log(e)
+            console.log(i)
+            if (countryID == list[i].countryInitials){
+               var selectedCountry = list[i].country
+               //console.log(selectedCountry)
+               var selectedCuisine = list[i].cuisine
+               //console.log(selectedCuisine)
+            } 
+              
+          }
+          console.log(countryID)
+          runTheCusine(selectedCuisine,selectedCountry);    
   });
   //if you hit the close button or if you click outside of the modal it clears the contents of the modal
 
-
-
-
- function runTheCusine(cuisineCode,countryCode){
+  function runTheCusine(cuisineCode,countryCode){
 
                    // Here we are building the URL we need to query the database
-                  
+                     console.log(cuisineCode)
+                     console.log(countryCode)
                      var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + cuisineCode
                   // Here we run our AJAX call to the OpenWeatherMap API
                      $.ajax({
@@ -211,8 +214,7 @@ for (var i = 0; i < rowCount; i++) {
                   });
                 });
                }
-
-                   function runTheMeal (countryMeal){
+function runTheMeal (countryMeal){
                    //Here were passing the selection from the user
                    queryURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+ countryMeal
                   
@@ -241,13 +243,8 @@ for (var i = 0; i < rowCount; i++) {
                      }
                         modalContent.append(ingredientsList);
                         modalContent.append("<h4>Instructions</h4>"+"<p>" + response.meals[0].strInstructions + "</p>" )
-             
 
-
-                       //Here we update the modal so that it we remove all of the selections and pass the
-                       // user information about the meal that they seleced.
-
-                     })
+                      })
 
    }
 
