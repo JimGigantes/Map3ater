@@ -4,6 +4,10 @@
     text-align: initial; /* restore text-align to default */
   }
 
+  .card .card-image .card-title.countryCardTitle {
+    color: black;
+  }
+
 #icon{
   margin: auto;
   height: 100px;
@@ -21,6 +25,7 @@
   width: 400px;
 
 }
+<<<<<<< HEAD
 .Ingredient-list{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -41,3 +46,5 @@ width: 50%;
   right: 0;
   width: 300px;
 }
+=======
+>>>>>>> a60efe21842511307a63bd5ff9c6e2a2467aad34
