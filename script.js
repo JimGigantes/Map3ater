@@ -3,17 +3,127 @@ $(document).ready(function() {
    var country = ["us", "uk","ca","cn","be","eg","fr","gr","in","ie","it","jm","jp","ke","my","mx","ma","pl","ru","es","th","tn","tr","vn"];
    var countryInitials = ["USA","GB","CAN","CHI","BEL","EGY","FRE","GRE","IND","IRI","ITA","JAM","JAP","KEN","MAL","MEX","MOR","POL","RUS","SPA","THA","TUN","TUR","VIE"];
    var list = [
-      {
-         cruise: "American",
-         country:"us",
-         countryInitials: "USA"
-      },
-      {
-         cruise: "British",
-         country:"uk",
-         countryInitials: "GB"
-      }
-   ]
+		{
+			cruise: 'American',
+			country: 'us',
+			countryInitials: 'USA'
+		},
+		{
+			cruise: 'British',
+			country: 'uk',
+			countryInitials: 'GB'
+		},
+		{
+			cruise: 'Canadian',
+			country: 'cn',
+			countryInitials: 'CAN'
+		},
+		{
+			cruise: 'Chinese',
+			country: 'cn',
+			countryInitials: 'CHI'
+		},
+		{
+			cruise: 'Dutch',
+			country: 'be',
+			countryInitials: 'BEL'
+		},
+		{
+			cruise: 'Egyptian',
+			country: 'eg',
+			countryInitials: 'EGY'
+		},
+		{
+			cruise: 'French',
+			country: 'fr',
+			countryInitials: 'FRE'
+		},
+		{
+			cruise: 'Greek',
+			country: 'gr',
+			countryInitials: 'GRE'
+		},
+		{
+			cruise: 'Indian',
+			country: 'in',
+			countryInitials: 'IND'
+		},
+		{
+			cruise: 'Irish',
+			country: 'ie',
+			countryInitials: 'IRI'
+		},
+		{
+			cruise: 'Italian',
+			country: 'it',
+			countryInitials: 'ITA'
+		},
+		{
+			cruise: 'Jamaican',
+			country: 'jm',
+			countryInitials: 'JAM'
+		},
+		{
+			cruise: 'Japanese',
+			country: 'jp',
+			countryInitials: 'JAP'
+		},
+		{
+			cruise: 'Kenyan',
+			country: 'ke',
+			countryInitials: 'KEN'
+		},
+		{
+			cruise: 'Malaysian',
+			country: 'my',
+			countryInitials: 'MAL'
+		},
+		{
+			cruise: 'Mexican',
+			country: 'mx',
+			countryInitials: 'MEX'
+		},
+		{
+			cruise: 'Moroccan',
+			country: 'ma',
+			countryInitials: 'MOR'
+		},
+		{
+			cruise: 'Polish',
+			country: 'pl',
+			countryInitials: 'POL'
+		},
+		{
+			cruise: 'Russian',
+			country: 'ru',
+			countryInitials: 'RUS'
+		},
+		{
+			cruise: 'Spanish',
+			country: 'es',
+			countryInitials: 'SPA'
+		},
+		{
+			cruise: 'Thai',
+			country: 'th',
+			countryInitials: 'THA'
+		},
+		{
+			cruise: 'Tunisian',
+			country: 'tn',
+			countryInitials: 'TUN'
+		},
+		{
+			cruise: 'Turkish',
+			country: 'tr',
+			countryInitials: 'TUR'
+		},
+		{
+			cruise: 'Vietnamese',
+			country: 'vn',
+			countryInitials: 'VIE'
+		}
+	];
    var modalContent = $(".modal-content")
   
         
