@@ -21,3 +21,23 @@
   width: 400px;
 
 }
+.Ingredient-list{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.foodIcon{
+position: relative;
+margin: 3%;
+display: block;
+align-content: center;
+width: 50%;
+}
+.modal {
+  height: 50vw;
+}
+.modal-close{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+}

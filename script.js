@@ -7,7 +7,7 @@ $(document).ready(function() {
          cruise: "American",
          country:"us",
          countryInitials: "USA"
-      },
+       },
       {
          cruise: "British",
          country:"uk",
@@ -16,10 +16,7 @@ $(document).ready(function() {
    ]
    var modalContent = $(".modal-content")
   
-        
    
-  
-
    $('.modal').modal();
 
    $('.material-icons').click(function () {
@@ -33,6 +30,14 @@ $(document).ready(function() {
       }
       runTheCusine(selectedCuisine,selectedCountry)
   });
+  //if you hit the close button or if you click outside of the modal it clears the contents of the modal
+  $('.modal-close').click(function () {
+   modalContent.empty()
+});
+  //if you hit the close button or if you click outside of the modal it clears the contents of the modal
+$('.modal-overlay').click(function () {
+   modalContent.empty()
+});
 
 
  function runTheCusine(cusineCode,countryCode){
@@ -52,18 +57,14 @@ $(document).ready(function() {
                     var numberOfMeals = response.meals.length
                   
                     modalContent.append("<img src='https://flagcdn.com/32x24/" + countryCode  +".png' width='50rem'  height='50rem' id='icon'>")
+                    modalContent.append("<div class='center carousel carousel-slider col s3'></div>")
                   // Here we are creatign the objects on the Modal for the User to select from.
                   for (var i = 0 ; i < numberOfMeals; i++){
                      
                     var mealID = response.meals[i].idMeal
                      var mealName = response.meals[i].strMeal
-                    //modalContent.append("<a href><img src="+response.meals[i].strMealThumb + " id='icon' class='foodIcon' meal-Name='" + mealName + "' meal-ID='" + mealID + "' > </i>")
-                    //modalContent.append("<a href>" + response.meals[i].strMeal + "</a>")
-                     //var listItemsForCarousel = $('a')
-                    
-                     //listItemsForCarousel.addClass("carousel-item")
-                     //listItemsForCarousel.append("<img src="+response.meals[i].strMealThumb + " id='icon' class='foodIcon' meal-Name='" + mealName + "' meal-ID='" + mealID + "' >")
-                     $(".carousel-slider").append("<a class='carousel-item' href='#"+i+"!'  meal-Name='" + mealName + "' meal-ID='" + mealID + "'>" + "<img src='" + response.meals[i].strMealThumb + "'  class='foodIcon'  >" +"</a>")
+
+                     $(".carousel-slider").append("<a class='carousel-item' href='#"+i+"!'  meal-Name='" + mealName + "' meal-ID='" + mealID + "'>" + "<img src='" + response.meals[i].strMealThumb + "'  class='foodImg'  >" +"</a>")
                      $('.carousel').carousel()
                   }
                   $('.carousel-item').click(function () {
@@ -73,15 +74,8 @@ $(document).ready(function() {
                      modalContent.empty()
                      console.log(countryMealID);
                         //we will need to append the passport here.
-                       
-
                      runTheMeal(countryMealID)
                   });
-
-
-
-                  
-
                 });
                }
 
@@ -97,36 +91,31 @@ $(document).ready(function() {
                      .then(function(response) {
                         // Log the resulting object
                         console.log(response);
-                  
-                       //Here we update the modal so that itwe remove all of the selections and pass the
-                       // user information about the meal that they seleced.
+                        
+                        modalContent.append("<img src='" + response.meals[0].strMealThumb + "' class='foodIcon col s3'>" )
+                        var ingredientsList = $("<ol class='Ingredient-list'>"+"<h4>Ingredients</h4>"+"</ol>");
+                        var mealsCount = response.meals.length;
 
-                
+                           if (mealsCount == 0){
+                              
+                           }else{
+                        var ingredientsarray = "strIngredient"
+                        var i = 1
+                        while (response["meals"][0][ingredientsarray+i]){
+                           ingredientsList.append("<li>"+response.meals[0][ingredientsarray+i] + "</li>");
+                           i++
+                        }
+                     }
+                        modalContent.append(ingredientsList);
+                        modalContent.append("<h4>Instructions</h4>"+"<p>" + response.meals[0].strInstructions + "</p>" )
+             
+
+
+                       //Here we update the modal so that it we remove all of the selections and pass the
+                       // user information about the meal that they seleced.
 
                      })
 
-
-
-
-
    }
 
-   //change the country code
- //$("#USA").on("click", function() {
- //  cuisineCode = cusine[0]
- //  countryCode = country[0]
- //  runTheWeather(cusineCode,countryCode)
- // });
- // $(".pulse").on("click",".material-icons", function(event) {
-//     event.preventDefault()
-  //  console.log(this)
-   
-   
-   //var countryAttVal = $(this).
-
-
-    //cuisineCode = cusine[0]
-    //countryCode = country[0]
-  // runTheWeather(latestCity)
-// });
 })
