@@ -4,4 +4,10 @@
     text-align: initial; /* restore text-align to default */
   }
 
+  .card .card-image .card-title.countryCardTitle {
+    color: black;
+  }
+
+  
+
   
