@@ -4,6 +4,10 @@
     text-align: initial; /* restore text-align to default */
   }
 
+  .card .card-image .card-title.countryCardTitle {
+    color: black;
+  }
+
 #icon{
   margin: auto;
   height: 100px;
