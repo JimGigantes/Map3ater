@@ -209,7 +209,7 @@ $(document).ready(function() {
 for (var i = 0; i < rowCount; i++) {
    var htmlRow = $("<div class='row'></div>");
    for (var j = 0; j < 4; j++) {
-	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cruise+'</span> </div> <div class="card-content"> <span class="card-title">Filler Country</span> <p>This is where we can add some fun facts about the countries into this section</p> </div> </div>');
+	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cruise+'</span> </div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section</p> </div> </div>');
 	  cardCount++
    }
 
