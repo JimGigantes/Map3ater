@@ -1,200 +1,123 @@
 $(document).ready(function() {
-	var cuisine = [
-		'American',
-		'British',
-		'Canadian',
-		'Chinese',
-		'Dutch',
-		'Egyptian',
-		'French',
-		'Greek',
-		'Indian',
-		'Irish',
-		'Italian',
-		'Jamaican',
-		'Japanese',
-		'Kenyan',
-		'Malaysian',
-		'Mexican',
-		'Moroccan',
-		'Polish',
-		'Russian',
-		'Spanish',
-		'Thai',
-		'Tunisian',
-		'Turkish',
-		'Vietnamese'
-	];
-	var country = [
-		'us',
-		'uk',
-		'ca',
-		'cn',
-		'be',
-		'eg',
-		'fr',
-		'gr',
-		'in',
-		'ie',
-		'it',
-		'jm',
-		'jp',
-		'ke',
-		'my',
-		'mx',
-		'ma',
-		'pl',
-		'ru',
-		'es',
-		'th',
-		'tn',
-		'tr',
-		'vn'
-	];
-	var countryInitials = [
-		'USA',
-		'GB',
-		'CAN',
-		'CHI',
-		'BEL',
-		'EGY',
-		'FRE',
-		'GRE',
-		'IND',
-		'IRI',
-		'ITA',
-		'JAM',
-		'JAP',
-		'KEN',
-		'MAL',
-		'MEX',
-		'MOR',
-		'POL',
-		'RUS',
-		'SPA',
-		'THA',
-		'TUN',
-		'TUR',
-		'VIE'
-	];
+
 	var list = [
 		{
-			cruise: 'American',
+			cuisine: 'American',
 			country: 'us',
 			countryInitials: 'USA'
 		},
 		{
-			cruise: 'British',
+			cuisine: 'British',
 			country: 'uk',
 			countryInitials: 'GB'
 		},
 		{
-			cruise: 'Canadian',
+			cuisine: 'Canadian',
 			country: 'cn',
 			countryInitials: 'CAN'
 		},
 		{
-			cruise: 'Chinese',
+			cuisine: 'Chinese',
 			country: 'cn',
 			countryInitials: 'CHI'
 		},
 		{
-			cruise: 'Dutch',
+			cuisine: 'Dutch',
 			country: 'be',
 			countryInitials: 'BEL'
 		},
 		{
-			cruise: 'Egyptian',
+			cuisine: 'Egyptian',
 			country: 'eg',
 			countryInitials: 'EGY'
 		},
 		{
-			cruise: 'French',
+			cuisine: 'French',
 			country: 'fr',
 			countryInitials: 'FRE'
 		},
 		{
-			cruise: 'Greek',
+			cuisine: 'Greek',
 			country: 'gr',
 			countryInitials: 'GRE'
 		},
 		{
-			cruise: 'Indian',
+			cuisine: 'Indian',
 			country: 'in',
 			countryInitials: 'IND'
 		},
 		{
-			cruise: 'Irish',
+			cuisine: 'Irish',
 			country: 'ie',
 			countryInitials: 'IRI'
 		},
 		{
-			cruise: 'Italian',
+			cuisine: 'Italian',
 			country: 'it',
 			countryInitials: 'ITA'
 		},
 		{
-			cruise: 'Jamaican',
+			cuisine: 'Jamaican',
 			country: 'jm',
 			countryInitials: 'JAM'
 		},
 		{
-			cruise: 'Japanese',
+			cuisine: 'Japanese',
 			country: 'jp',
 			countryInitials: 'JAP'
 		},
 		{
-			cruise: 'Kenyan',
+			cuisine: 'Kenyan',
 			country: 'ke',
 			countryInitials: 'KEN'
 		},
 		{
-			cruise: 'Malaysian',
+			cuisine: 'Malaysian',
 			country: 'my',
 			countryInitials: 'MAL'
 		},
 		{
-			cruise: 'Mexican',
+			cuisine: 'Mexican',
 			country: 'mx',
 			countryInitials: 'MEX'
 		},
 		{
-			cruise: 'Moroccan',
+			cuisine: 'Moroccan',
 			country: 'ma',
 			countryInitials: 'MOR'
 		},
 		{
-			cruise: 'Polish',
+			cuisine: 'Polish',
 			country: 'pl',
 			countryInitials: 'POL'
 		},
 		{
-			cruise: 'Russian',
+			cuisine: 'Russian',
 			country: 'ru',
 			countryInitials: 'RUS'
 		},
 		{
-			cruise: 'Spanish',
+			cuisine: 'Spanish',
 			country: 'es',
 			countryInitials: 'SPA'
 		},
 		{
-			cruise: 'Thai',
+			cuisine: 'Thai',
 			country: 'th',
 			countryInitials: 'THA'
 		},
 		{
-			cruise: 'Tunisian',
+			cuisine: 'Tunisian',
 			country: 'tn',
 			countryInitials: 'TUN'
 		},
 		{
-			cruise: 'Turkish',
+			cuisine: 'Turkish',
 			country: 'tr',
 			countryInitials: 'TUR'
 		},
 		{
-			cruise: 'Vietnamese',
+			cuisine: 'Vietnamese',
 			country: 'vn',
 			countryInitials: 'VIE'
 		}
@@ -205,12 +128,14 @@ $(document).ready(function() {
    var cardCount = 0;
    var cardContent = $("#cardContainer")
 
-
+var k = 0
 for (var i = 0; i < rowCount; i++) {
    var htmlRow = $("<div class='row'></div>");
    for (var j = 0; j < 4; j++) {
-	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cruise+'</span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-ID="USA">favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
-	  cardCount++
+      
+	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="assets/logo.png"> <span class="card-title countryCardTitle">'+list[cardCount].cuisine+'</span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-ID='+ list[k].countryInitials+' >favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
+     k++
+     cardCount++
    }
 
    cardContent.append(htmlRow)
@@ -220,22 +145,25 @@ for (var i = 0; i < rowCount; i++) {
  $('modalInfo');
 
  //   The Function to Start the Modal
- $(document).ready(function() {
-	 $('.modal').modal();
 
-	 $('#modal').on('click', function() {
-    })
- });
+ $('.modal').modal({
+   onCloseStart:function(){
+      modalContent.empty()
+   },
+   opacity	: .65
+});
 
  
 
    $('.material-icons').click(function () {
       var countryID = $(this).attr('country-ID');
-         //console.log(countryID)
-      for (var i = 0; countryID == countryInitials[i] ; i++ ){
-         if (countryID == countryInitials[i]){
-         var selectedCountry = country[i]
-         var selectedCuisine = cuisine[i]
+         console.log(countryID)
+      for (var i = 0; countryID == list[i].countryInitials ; i++ ){
+         if (countryID == list[i].countryInitials){
+         var selectedCountry = list[i].country
+         console.log(selectedCountry)
+         var selectedCuisine = list[i].cuisine
+         console.log(selectedCuisine)
          }
       }
       runTheCusine(selectedCuisine,selectedCountry)
@@ -245,11 +173,11 @@ for (var i = 0; i < rowCount; i++) {
 
 
 
- function runTheCusine(cusineCode,countryCode){
+ function runTheCusine(cuisineCode,countryCode){
 
                    // Here we are building the URL we need to query the database
                   
-                     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + cusineCode
+                     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + cuisineCode
                   // Here we run our AJAX call to the OpenWeatherMap API
                      $.ajax({
                         url: queryURL,
