@@ -17,7 +17,12 @@ $(document).ready(function() {
    var modalContent = $(".modal-content")
   
    
-   $('.modal').modal();
+   $('.modal').modal({
+      onCloseStart:function(){
+         modalContent.empty()
+      },
+      opacity	: .65
+   });
 
    $('.material-icons').click(function () {
       var countryID = $(this).attr('country-ID');
@@ -31,13 +36,8 @@ $(document).ready(function() {
       runTheCusine(selectedCuisine,selectedCountry)
   });
   //if you hit the close button or if you click outside of the modal it clears the contents of the modal
-  $('.modal-close').click(function () {
-   modalContent.empty()
-});
-  //if you hit the close button or if you click outside of the modal it clears the contents of the modal
-$('.modal-overlay').click(function () {
-   modalContent.empty()
-});
+
+
 
 
  function runTheCusine(cusineCode,countryCode){
@@ -57,14 +57,14 @@ $('.modal-overlay').click(function () {
                     var numberOfMeals = response.meals.length
                   
                     modalContent.append("<img src='https://flagcdn.com/32x24/" + countryCode  +".png' width='50rem'  height='50rem' id='icon'>")
-                    modalContent.append("<div class='center carousel carousel-slider col s3'></div>")
+                    modalContent.append("<div class='carousel'></div>")
                   // Here we are creatign the objects on the Modal for the User to select from.
                   for (var i = 0 ; i < numberOfMeals; i++){
                      
                     var mealID = response.meals[i].idMeal
                      var mealName = response.meals[i].strMeal
 
-                     $(".carousel-slider").append("<a class='carousel-item' href='#"+i+"!'  meal-Name='" + mealName + "' meal-ID='" + mealID + "'>" + "<img src='" + response.meals[i].strMealThumb + "'  class='foodImg'  >" +"</a>")
+                     $(".carousel").append("<a class='carousel-item' href='#"+i+"!'  meal-Name='" + mealName + "' meal-ID='" + mealID + "'>" + "<img src='" + response.meals[i].strMealThumb + "'  class='foodImg'  >" +"</a>")
                      $('.carousel').carousel()
                   }
                   $('.carousel-item').click(function () {
