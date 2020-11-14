@@ -33,15 +33,15 @@ body {
 }
 
 .card-title1{
-  
+  width: 20%;
   background-color: black;
   text-align: center;
   opacity: .85;
   border-radius: 10%;
-  
-  
 }
-
+.transparent1{
+  background-color: transparent;
+}
 .Ingredient-list{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
