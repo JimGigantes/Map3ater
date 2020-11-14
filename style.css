@@ -1,3 +1,7 @@
+body {
+background-image: url("assets/shipwreck.jpg");
+}
+
 .center-cols > .col {
     float:none; /* disable the float */
     display: inline-block; /* make blocks inline-block */
@@ -22,6 +26,15 @@
   margin: auto;
 }
 
+.card-title1{
+  
+  background-color: black;
+  text-align: center;
+  opacity: .85;
+  border-radius: 10%;
+  
+  
+}
 
 .Ingredient-list{
   font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -133,7 +133,7 @@ for (var i = 0; i < rowCount; i++) {
    var htmlRow = $("<div class='row'></div>");
    for (var j = 0; j < 4; j++) {
       
-	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="https://flagcdn.com/256x192/'+list[k].country+'.png"> <span class="card-title countryCardTitle">'+list[cardCount].cuisine+'</span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-id=' + list[k].countryInitials + ' >favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
+	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="https://flagcdn.com/256x192/'+list[k].country+'.png"> <span class="card-title1 white-text"> ' + "  " + list[cardCount].cuisine+ "  " + ' </span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-id=' + list[k].countryInitials + ' >favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
      k++
      cardCount++
    }
