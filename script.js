@@ -248,4 +248,11 @@ function runTheMeal (countryMeal){
 
    }
 
+   $('#userSubmit').on('click' function()){
+	   var userSubmit = $('#userName').val();
+	   $('#userName').val();
+
+	   clientSave(userSubmit);
+   }
+
 })
