@@ -23,13 +23,11 @@
 }
 
 .card-title1{
-  
+  width: 20%;
   background-color: black;
   text-align: center;
   opacity: .85;
   border-radius: 10%;
-  
-  
 }
 
 .Ingredient-list{
