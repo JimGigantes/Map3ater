@@ -73,3 +73,7 @@ width: 100px;
   text-decoration-style: dashed;
   text-shadow: 2px 2px 10px white;
 }
+
+.card-content {
+  opacity: .65;
+}
