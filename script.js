@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var savedCountry = JSON.parse(localStorage.getItem("savedCountry"));
 
 	var list = [
 		{
@@ -144,8 +145,8 @@ for (var i = 0; i < rowCount; i++) {
  var modalContent = $('.modal-content');
  $('modalInfo');
 
- //   The Function to Start the Modal
 
+//if you hit the close button or if you click outside of the modal it clears the contents of the modal
  $('.modal').modal({
    onCloseStart:function(){
       modalContent.empty()
@@ -172,7 +173,15 @@ for (var i = 0; i < rowCount; i++) {
           }
             
   });
-  //if you hit the close button or if you click outside of the modal it clears the contents of the modal
+  
+  function saveToLocal(mealName, country){
+
+	$("#country-List").prepend('<li class="collection-item"> Cuisine: ' + country + '          Name Of Food: ' + mealName + "</li>");
+	   var currentList = $("#country-List").
+	   localStorage.setItem("savedCountry", JSON.stringify(currentList));
+  }
+
+
 
   function runTheCusine(cuisineCode,countryCode){
 
@@ -209,11 +218,11 @@ for (var i = 0; i < rowCount; i++) {
                      modalContent.empty()
                      console.log(countryMealID);
                         //we will need to append the passport here.
-                     runTheMeal(countryMealID)
+                     runTheMeal(countryMealID,mealName, cuisineCode)
                   });
                 });
                }
-function runTheMeal (countryMeal){
+function runTheMeal (countryMeal, mealName, cuisineCode){
                    //Here were passing the selection from the user
                    queryURL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+ countryMeal
                   
@@ -242,7 +251,13 @@ function runTheMeal (countryMeal){
                         }
                      }
                         modalContent.append(ingredientsList);
-                        modalContent.append("<h4>Instructions</h4>"+"<p>" + response.meals[0].strInstructions + "</p>" )
+						modalContent.append("<h4>Instructions</h4>"+"<p>" + response.meals[0].strInstructions + "</p>" )
+						$(".modal-footer").append("<a href='#!' class='save-btn waves-effect waves-purple btn-flat'>Save</a>")
+						$('.save-btn').click(function () {
+							saveToLocal(mealName, cuisineCode)
+							
+								  
+						});
 
                       })
 

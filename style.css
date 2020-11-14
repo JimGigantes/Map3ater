@@ -29,7 +29,9 @@
   opacity: .85;
   border-radius: 10%;
 }
-
+.transparent1{
+  background-color: transparent;
+}
 .Ingredient-list{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
