@@ -281,7 +281,7 @@ function runTheMeal (countryMeal, mealName, cuisineCode){
 						modalContent.append("<h4>Instructions</h4>"+"<p>" + response.meals[0].strInstructions + "</p>" )
 						$(".modal-footer").append("<a href='#!' class='save-btn waves-effect waves-purple btn-flat'>Save</a>")
 						$('.save-btn').click(function () {
-							saveToLocal(mealName, cuisineCode)
+							saveToLocal(response.meals[0].strMeal, cuisineCode)
 															  
 						});
 
