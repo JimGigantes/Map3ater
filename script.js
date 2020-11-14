@@ -191,7 +191,7 @@ for (var i = 0; i < rowCount; i++) {
                      console.log(response);
                     var numberOfMeals = response.meals.length
                   
-                    modalContent.append("<img src='https://flagcdn.com/192x144/" + countryCode  +".png' width='50rem'  height='50rem' id='icon'>")
+                    modalContent.append("<img src='https://flagcdn.com/192x144/" + countryCode  +".png' vertical-align='middle'   id='icon'>")
                     modalContent.append("<div class='carousel'></div>")
                   // Here we are creatign the objects on the Modal for the User to select from.
                   for (var i = 0 ; i < numberOfMeals; i++){
@@ -226,7 +226,8 @@ function runTheMeal (countryMeal){
                         // Log the resulting object
                         console.log(response);
                         
-                        modalContent.append("<img src='" + response.meals[0].strMealThumb + "' class='foodIcon col s3'>" )
+                        modalContent.append("<h1>" + response.meals[0].strMeal + "</h1>" )
+                        modalContent.append("<img src='" + response.meals[0].strMealThumb + "' class='foodIcon '>" )
                         var ingredientsList = $("<ol class='Ingredient-list'>"+"<h4>Ingredients</h4>"+"</ol>");
                         var mealsCount = response.meals.length;
 
