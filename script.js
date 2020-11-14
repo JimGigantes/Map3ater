@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-
+	M.updateTextFields();
 	savedCountry = JSON.parse(localStorage.getItem("savedCountry"));
-
 	var list = [
 		{
 			cuisine: 'American',
@@ -286,5 +285,12 @@ function runTheMeal (countryMeal, mealName, cuisineCode){
                       })
 
    }
+
+//    $('#userSubmit').on('click') function(){
+// 	   var userSubmit = $('#userName').val();
+// 	   $('#userName').val();
+
+// 	   clientSave(userSubmit);
+//    }
 
 })
