@@ -1,5 +1,7 @@
 $(document).ready(function() {
-	var savedCountry = JSON.parse(localStorage.getItem("savedCountry"));
+
+
+	savedCountry = JSON.parse(localStorage.getItem("savedCountry"));
 
 	var list = [
 		{
@@ -128,22 +130,34 @@ $(document).ready(function() {
    var rowCount = Math.ceil(list.length/4)
    var cardCount = 0;
    var cardContent = $("#cardContainer")
+	var modalContent = $('.modal-content');
+	$('modalInfo');
+	var k = 0
 
-var k = 0
+///This creates the card rows
 for (var i = 0; i < rowCount; i++) {
    var htmlRow = $("<div class='row'></div>");
+
+//This creates the 4 cards in the row
    for (var j = 0; j < 4; j++) {
       
 	  htmlRow.append('<div class="col s12 m6 l3"> <div class="card" id="card'+cardCount+'"> <div class="card-image"> <img src="https://flagcdn.com/256x192/'+list[k].country+'.png"> <span class="card-title1 white-text"> ' + "  " + list[cardCount].cuisine+ "  " + ' </span> <a href="" class="waves-effect waves-light btn-floating halfway-fab indigo modal-trigger pulse pink" href="#modal1" button data-target="modal1" class="btn modal-trigger"> <i class="material-icons" country-id=' + list[k].countryInitials + ' >favorite</i> </a></div> <div class="card-content"><p>This is where we can add some fun facts about the countries into this section </p> </div> </div>');
      k++
      cardCount++
    }
-
+//appends
    cardContent.append(htmlRow)
 }
 
- var modalContent = $('.modal-content');
- $('modalInfo');
+///THis loads the passport
+if (localStorage.getItem('savedCountry')){
+	var currentList = JSON.parse(localStorage.getItem('savedCountry'));
+	$("#country-List").each(function(i){
+	  this.innerHTML = currentList [i];
+	})
+}
+
+
 
 
 //if you hit the close button or if you click outside of the modal it clears the contents of the modal
@@ -153,10 +167,15 @@ for (var i = 0; i < rowCount; i++) {
    },
    opacity	: .65
 });
+///This clears the passport
+$('.ClearButton').click(function () {
+	localStorage.clear();
+	$("#country-List").empty()
+});
 
- 
 
-   $('.material-icons').click(function (e) {
+//This listens to tne buttons on the cards
+   $('.material-icons').click(function () {
       
       var countryID = $(this).attr('country-id');
       
@@ -177,7 +196,12 @@ for (var i = 0; i < rowCount; i++) {
   function saveToLocal(mealName, country){
 
 	$("#country-List").prepend('<li class="collection-item"> Cuisine: ' + country + '          Name Of Food: ' + mealName + "</li>");
-	   var currentList = $("#country-List").
+	   var currentList = [];
+	   
+	   $("#country-List").each(function(){
+		   currentList.push(this.innerHTML)
+	   })
+	   
 	   localStorage.setItem("savedCountry", JSON.stringify(currentList));
   }
 
