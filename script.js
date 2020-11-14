@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 	M.updateTextFields();
 
-	savedCountry = JSON.parse(localStorage.getItem("savedCountry"));
+	
 	var list = [
 		{
 			cuisine: 'American',
@@ -175,14 +175,14 @@ $('.ClearButton').click(function () {
 });
 
 
-//This listens to tne buttons on the cards
+//This listens to the buttons on the cards
    $('.material-icons').click(function () {
       
       var countryID = $(this).attr('country-id');
       
       
         for (var i = 0;i < list.length;i++ ){
-            console.log(i)
+            
              if (countryID == list[i].countryInitials){
                 var selectedCountry = list[i].country
             
@@ -211,8 +211,8 @@ $('.ClearButton').click(function () {
   function runTheCusine(cuisineCode,countryCode){
 
                    // Here we are building the URL we need to query the database
-                     console.log(cuisineCode)
-                     console.log(countryCode)
+                     //console.log(cuisineCode)
+                     //console.log(countryCode)
                      var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?a=" + cuisineCode
                   // Here we run our AJAX call to the OpenWeatherMap API
                      $.ajax({
@@ -225,9 +225,10 @@ $('.ClearButton').click(function () {
                      console.log(response);
                     var numberOfMeals = response.meals.length
                   
-                    modalContent.append("<img src='https://flagcdn.com/192x144/" + countryCode  +".png' vertical-align='middle'   id='icon'>")
+                    modalContent.append("<img src='https://flagcdn.com/192x144/" + countryCode  +".png' vertical-align='middle'   class='icon22'>")
                     modalContent.append("<div class='carousel'></div>")
-                  // Here we are creatign the objects on the Modal for the User to select from.
+				  // Here we are creatign the objects on the Modal for the User to select from.
+				  
                   for (var i = 0 ; i < numberOfMeals; i++){
                      
                     var mealID = response.meals[i].idMeal
@@ -241,7 +242,7 @@ $('.ClearButton').click(function () {
                      var countryMealName = $(this).attr('meal-Name');
 
                      modalContent.empty()
-                     console.log(countryMealID);
+                     //console.log(countryMealID);
                         //we will need to append the passport here.
                      runTheMeal(countryMealID,mealName, cuisineCode)
                   });
@@ -268,10 +269,11 @@ function runTheMeal (countryMeal, mealName, cuisineCode){
                            if (mealsCount == 0){
                               
                            }else{
-                        var ingredientsarray = "strIngredient"
+						var ingredientsarray = "strIngredient"
+						var measurementsarray = "strMeasure"
                         var i = 1
                         while (response["meals"][0][ingredientsarray+i]){
-                           ingredientsList.append("<li>"+response.meals[0][ingredientsarray+i] + "</li>");
+                           ingredientsList.append("<li>"+response.meals[0][ingredientsarray+i] + " : " +response.meals[0][measurementsarray+i] + "</li>");
                            i++
                         }
                      }
