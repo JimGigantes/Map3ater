@@ -149,7 +149,7 @@ for (var i = 0; i < rowCount; i++) {
    cardContent.append(htmlRow)
 }
 
-///THis loads the passport
+///This loads the passport
 if (localStorage.getItem('savedCountry')){
 	var currentList = JSON.parse(localStorage.getItem('savedCountry'));
 	$("#country-List").each(function(i){
@@ -163,7 +163,8 @@ if (localStorage.getItem('savedCountry')){
 //if you hit the close button or if you click outside of the modal it clears the contents of the modal
  $('.modal').modal({
    onCloseStart:function(){
-      modalContent.empty()
+	  modalContent.empty()
+	  $(".save-btn").remove()
    },
    opacity	: .65
 });
@@ -279,8 +280,7 @@ function runTheMeal (countryMeal, mealName, cuisineCode){
 						$(".modal-footer").append("<a href='#!' class='save-btn waves-effect waves-purple btn-flat'>Save</a>")
 						$('.save-btn').click(function () {
 							saveToLocal(mealName, cuisineCode)
-							
-								  
+															  
 						});
 
                       })
