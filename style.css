@@ -9,24 +9,21 @@
   }
 
 #icon{
+  position: relative;
+ 
+  display: block;
+  align-content: center;
+  
   margin: auto;
-  height: 100px;
-  width: 100px;
+  
 }
 .modal-content{
   width: auto;
   margin: auto;
 }
 
-.carousel-item333{
-  width: auto;
-  margin: auto;
-  height: 400px;
-  width: 400px;
 
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 .Ingredient-list{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -37,6 +34,9 @@ margin: 3%;
 display: block;
 align-content: center;
 width: 50%;
+margin: auto;
+height: 100px;
+width: 100px;
 }
 .modal {
   height: 50vw;
@@ -47,9 +47,6 @@ width: 50%;
   right: 0;
   width: 300px;
 }
-=======
->>>>>>> a60efe21842511307a63bd5ff9c6e2a2467aad34
-=======
 
 #Countries {
   color: royalblue;
@@ -57,4 +54,4 @@ width: 50%;
   text-decoration-line: underline;
   text-decoration-style: dashed;
 }
->>>>>>> 8fe9efde2d75ce8089f87b4265a7a76cae023833
+
