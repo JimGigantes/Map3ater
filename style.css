@@ -1,5 +1,11 @@
 body {
-background-image: url("assets/shipwreck.jpg");
+  background-image: url("assets/clearWater.jpg");
+  background-color: #cccccc;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 .center-cols > .col {
@@ -61,8 +67,9 @@ width: 100px;
 }
 
 #Countries {
-  color: royalblue;
+  color: midnightblue;
   font-family: cursive;
   text-decoration-line: underline;
   text-decoration-style: dashed;
+  text-shadow: 2px 2px 10px white;
 }

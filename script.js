@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+	M.updateTextFields();
+	
 	var list = [
 		{
 			cuisine: 'American',
